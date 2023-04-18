@@ -25,3 +25,4 @@ C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDokt
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.genruntimeconfig.cache
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.UykuApnesiTespitSistemi.resources
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.Login.resources
+C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.Properties.Resources.resources
