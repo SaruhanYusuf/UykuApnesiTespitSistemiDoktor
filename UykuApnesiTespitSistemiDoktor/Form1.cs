@@ -91,7 +91,8 @@ namespace UykuApnesiTespitSistemiDoktor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Login log = new Login();
+            log.Close();
         }
     }
 }
