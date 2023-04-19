@@ -11,16 +11,19 @@ using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
 using System.Drawing;
+using Newtonsoft.Json;
 
 namespace UykuApnesiTespitSistemiDoktor
 {
     public partial class Login : Form
     {
-        List<TheUsers> userList;
+        static List<TheUsers> userList;
+        
         public Login()
         {
             userList = new List<TheUsers>();
             InitializeComponent();
+
         }
         IFirebaseConfig ifc = new FirebaseConfig() //RealTime Database adresine bağlantı için bir nesne oluşturuldu.
         {
@@ -40,6 +43,7 @@ namespace UykuApnesiTespitSistemiDoktor
             {
                 MessageBox.Show($"Bağlantınızı Kontrol Ediniz. \n Hata Kodu => {ex}");
             }
+            this.CenterToScreen();
 
         }
         private void GirisYap_Click(object sender, EventArgs e)
@@ -56,28 +60,40 @@ namespace UykuApnesiTespitSistemiDoktor
 
             System.Text.RegularExpressions.Regex expr = new System.Text.RegularExpressions
                 .Regex(@"^[a-zA-Z][\w\.-]{2,28}[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
+            //Database tepkiyi TheUsers sınıfına göre kontrol edecek.
+            FirebaseResponse res = client.Get(@"Users/");
+            var deneme = res.Body;
+            var data = JsonConvert.DeserializeObject<Dictionary<string, TheUsers>>(deneme);
 
-         
-            FirebaseResponse res = client.Get(@"Users/" + userList.First());
-            TheUsers ResUser = res.ResultAs<TheUsers>(); //Database tepkiyi TheUsers sınıfına göre kontrol edecek.
-          /*  TheUsers CurUser = new TheUsers()
+            foreach (var item in data)
+            {
+                TheUsers user = item.Value;
+                userList.Add(user);
+            }
+
+            TheUsers CurUser = new TheUsers()
             {
                 Mail = MailBox.Text,
                 Password = PasswordBox.Text,
             };
-            if (TheUsers.IsEqual(ResUser, CurUser))
+           
+            TheUsers finaluser = userList.FirstOrDefault(x => x.Mail.Equals(CurUser.Mail) && x.Password.Equals(CurUser.Password));
+            
+            if (finaluser!=null && expr.IsMatch(email))
             {
-                
-                UykuApnesiTespitSistemi uykuApnesiTespitSistemi = new UykuApnesiTespitSistemi();
-                uykuApnesiTespitSistemi.ShowDialog();
+                UykuApnesiTespitSistemi uykuApnesiTespitSistemi = new UykuApnesiTespitSistemi(finaluser.HastaList);
+                uykuApnesiTespitSistemi.Show();
+                this.Visible = false;
             }
             else
-                TheUsers.ShowError();*/
+                TheUsers.ShowError();
         }
         private void KayitOl_Click(object sender, EventArgs e)
         {
             Register reg = new Register();
+            this.Visible = false;
             reg.ShowDialog();
+            
         }
         private void PasswordBox_TextChanged(object sender, EventArgs e)
         {

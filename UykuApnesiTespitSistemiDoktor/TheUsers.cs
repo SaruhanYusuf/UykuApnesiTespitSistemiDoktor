@@ -15,8 +15,10 @@ namespace UykuApnesiTespitSistemiDoktor
         public List<Hasta> HastaList { get; set; }
         public string Mail { get; set; }
         public string Password { get; set; }
+       
         private static string error = "Bir Hata Oluştu";
 
+      
         public TheUsers(int ıD, string name, string alan, List<Hasta> hastaList, string mail, string password)
         {
             ID = ıD; // Buraya bir düzenleme yapılacak! 
@@ -25,7 +27,12 @@ namespace UykuApnesiTespitSistemiDoktor
             HastaList = hastaList;
             Mail = mail;
             Password = password;
+
         }
+
+        public TheUsers()
+        {
+        } 
 
         public static void ShowError() =>
             MessageBox.Show(error);

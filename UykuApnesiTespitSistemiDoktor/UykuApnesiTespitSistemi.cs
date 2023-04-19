@@ -16,17 +16,20 @@ namespace UykuApnesiTespitSistemiDoktor
 {
     public partial class UykuApnesiTespitSistemi : Form
     {
-        public UykuApnesiTespitSistemi()
+       private IFirebaseClient client;
+        private List<Hasta> hastaList;
+        public UykuApnesiTespitSistemi(List<Hasta> hastaList)
         {
             InitializeComponent();
+            this.hastaList= hastaList;
         }
-        IFirebaseConfig ifc = new FirebaseConfig() //RealTime Database adresine bağlantı için bir nesne oluşturuldu.
+        private IFirebaseConfig ifc = new FirebaseConfig() //RealTime Database adresine bağlantı için bir nesne oluşturuldu.
         {
             //Database adresi ve şifresi
             AuthSecret = "UzExMUlmK4nGDVcAQvcxCDUkdoh0DOZDm3PMpxsL",
             BasePath = "https://uykuapnesitespitsistemi-default-rtdb.firebaseio.com/"
         };
-        IFirebaseClient client;
+        
 
         private void UykuApnesiTespitSistemi_Load(object sender, EventArgs e)
         {
@@ -38,6 +41,11 @@ namespace UykuApnesiTespitSistemiDoktor
             {
                 MessageBox.Show($"Bağlantınızı Kontrol Ediniz. \n Hata Kodu => {ex}");
             }
+            this.CenterToScreen();
+            Login log = new Login();
+            log.Visible = false;
+
+            dataGridView1.DataSource = hastaList;
 
         }
 
@@ -53,11 +61,19 @@ namespace UykuApnesiTespitSistemiDoktor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UykuApnesiTespitSistemi uats = new UykuApnesiTespitSistemi();
-            uats.Close();
+            Login log = new Login();
+            log.Show();
+            this.Close(); 
+            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void HastaEkleButton_Click(object sender, EventArgs e)
         {
 
         }

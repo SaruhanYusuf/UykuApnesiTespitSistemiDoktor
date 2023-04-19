@@ -45,6 +45,7 @@
             this.HastaEkleButton = new System.Windows.Forms.Button();
             this.HastaSilButton = new System.Windows.Forms.Button();
             this.HastaRaporListesiButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -54,11 +55,11 @@
             // 
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Location = new System.Drawing.Point(969, 0);
+            this.button1.Location = new System.Drawing.Point(961, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 33);
+            this.button1.Size = new System.Drawing.Size(45, 33);
             this.button1.TabIndex = 0;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
@@ -90,6 +91,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -214,6 +216,7 @@
             this.HastaEkleButton.TabIndex = 14;
             this.HastaEkleButton.Text = "Yeni Hastayı Ekle";
             this.HastaEkleButton.UseVisualStyleBackColor = false;
+            this.HastaEkleButton.Click += new System.EventHandler(this.HastaEkleButton_Click);
             // 
             // HastaSilButton
             // 
@@ -240,6 +243,15 @@
             this.HastaRaporListesiButton.TabIndex = 16;
             this.HastaRaporListesiButton.Text = "Hasta Raporu Göster";
             this.HastaRaporListesiButton.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(449, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Hasta Ekle";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // UykuApnesiTespitSistemi
             // 
@@ -294,5 +306,6 @@
         private Button HastaEkleButton;
         private Button HastaSilButton;
         private Button HastaRaporListesiButton;
+        private Button button2;
     }
 }

@@ -26,6 +26,7 @@ namespace UykuApnesiTespitSistemiDoktor
             {
                 MessageBox.Show($"Baðlantýnýzý Kontrol Ediniz. \n Hata Kodu =>{ex}");
             }
+            this.CenterToScreen();
         }
 
         private void MailBox_TextChanged(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace UykuApnesiTespitSistemiDoktor
             List<Rapor> raporList = new();
             raporList.Add(new Rapor(1,"18.04.2023","deneme","deneme"));
             hastaList.Add(new Hasta(1, "Hasan", "Münir", "Apne", 22, 'E', raporList));
-            userList.Add(new TheUsers(1, "Münir", "UykuApnesi",hastaList, "Sarukan151@gmail.com", "123456789"));
+
             string email = MailBox.Text;
 
             System.Text.RegularExpressions.Regex expr = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z][\w\.-]{2,28}[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
@@ -50,10 +51,19 @@ namespace UykuApnesiTespitSistemiDoktor
                 MessageBox.Show("Lütfen Tüm Alanlarý Doldurunuz.");
                 return;
             }
+            else if (expr.IsMatch(email))
+            {
+                
+
+                string mail = MailBox.Text;
+                string password = PasswordBox.Text;
+                userList.Add(new TheUsers(1, "Münir", "UykuApnesi", hastaList, mail, password));
+                string referance = Guid.NewGuid().ToString();
+
+                SetResponse set = client.Set(@"Users/" + referance, userList.First());
+            }
             else
-                TheUsers.ShowError();
-     
-            SetResponse set = client.Set(@"Users/" + MailBox.Text, userList.First());
+                MessageBox.Show("Geçerli Bir Mail Adresi Giriniz.");
 
         }
 
@@ -71,7 +81,9 @@ namespace UykuApnesiTespitSistemiDoktor
         private void UyeGirisButton_Click(object sender, EventArgs e)
         {
             Login log = new Login();
+            this.Visible = false;
             log.ShowDialog();    
+            
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -91,8 +103,8 @@ namespace UykuApnesiTespitSistemiDoktor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Login log = new Login();
-            log.Close();
+            Application.Exit();
+            
         }
     }
 }
