@@ -45,7 +45,6 @@
             this.HastaEkleButton = new System.Windows.Forms.Button();
             this.HastaSilButton = new System.Windows.Forms.Button();
             this.HastaRaporListesiButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -74,7 +73,8 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(540, 402);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+          
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // label1
             // 
@@ -91,7 +91,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -150,9 +149,9 @@
             this.label4.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.label4.Location = new System.Drawing.Point(597, 165);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 17);
+            this.label4.Size = new System.Drawing.Size(153, 17);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Hastanın Yaşı";
+            this.label4.Text = "Hastanın Doğum Tarihi";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // checkBox1
@@ -230,6 +229,7 @@
             this.HastaSilButton.TabIndex = 15;
             this.HastaSilButton.Text = "Mevcut Hastayı Sil";
             this.HastaSilButton.UseVisualStyleBackColor = false;
+            this.HastaSilButton.Click += new System.EventHandler(this.HastaSilButton_Click);
             // 
             // HastaRaporListesiButton
             // 
@@ -243,15 +243,6 @@
             this.HastaRaporListesiButton.TabIndex = 16;
             this.HastaRaporListesiButton.Text = "Hasta Raporu Göster";
             this.HastaRaporListesiButton.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(449, 13);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Hasta Ekle";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // UykuApnesiTespitSistemi
             // 
@@ -306,6 +297,5 @@
         private Button HastaEkleButton;
         private Button HastaSilButton;
         private Button HastaRaporListesiButton;
-        private Button button2;
     }
 }

@@ -13,6 +13,9 @@ C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDokt
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.csproj.AssemblyReference.cache
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.Register.resources
+C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.Login.resources
+C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.Properties.Resources.resources
+C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.UykuApnesiTespitSistemi.resources
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.csproj.GenerateResource.cache
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.AssemblyInfoInputs.cache
@@ -23,6 +26,3 @@ C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDokt
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\ref\UykuApnesiTespitSistemiDoktor.dll
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.pdb
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.genruntimeconfig.cache
-C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.UykuApnesiTespitSistemi.resources
-C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.Login.resources
-C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.Properties.Resources.resources

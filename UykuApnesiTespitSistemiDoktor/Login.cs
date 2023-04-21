@@ -18,7 +18,7 @@ namespace UykuApnesiTespitSistemiDoktor
     public partial class Login : Form
     {
         static List<TheUsers> userList;
-        
+        static string referance;
         public Login()
         {
             userList = new List<TheUsers>();
@@ -63,7 +63,11 @@ namespace UykuApnesiTespitSistemiDoktor
             //Database tepkiyi TheUsers sınıfına göre kontrol edecek.
             FirebaseResponse res = client.Get(@"Users/");
             var deneme = res.Body;
+         
+           
+         
             var data = JsonConvert.DeserializeObject<Dictionary<string, TheUsers>>(deneme);
+          
 
             foreach (var item in data)
             {
@@ -81,7 +85,7 @@ namespace UykuApnesiTespitSistemiDoktor
             
             if (finaluser!=null && expr.IsMatch(email))
             {
-                UykuApnesiTespitSistemi uykuApnesiTespitSistemi = new UykuApnesiTespitSistemi(finaluser.HastaList);
+                UykuApnesiTespitSistemi uykuApnesiTespitSistemi = new UykuApnesiTespitSistemi(finaluser.HastaList,finaluser.ID);
                 uykuApnesiTespitSistemi.Show();
                 this.Visible = false;
             }

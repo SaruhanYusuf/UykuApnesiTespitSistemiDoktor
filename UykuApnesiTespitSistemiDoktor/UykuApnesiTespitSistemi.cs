@@ -18,10 +18,17 @@ namespace UykuApnesiTespitSistemiDoktor
     {
        private IFirebaseClient client;
         private List<Hasta> hastaList;
-        public UykuApnesiTespitSistemi(List<Hasta> hastaList)
+        private string id;
+        private int removeAt;
+
+        private string isim, soyisim;
+        private int yas;
+        private bool eMi;
+        public UykuApnesiTespitSistemi(List<Hasta> hastaList,string id)
         {
             InitializeComponent();
             this.hastaList= hastaList;
+            this.id = id;
         }
         private IFirebaseConfig ifc = new FirebaseConfig() //RealTime Database adresine bağlantı için bir nesne oluşturuldu.
         {
@@ -46,7 +53,7 @@ namespace UykuApnesiTespitSistemiDoktor
             log.Visible = false;
 
             dataGridView1.DataSource = hastaList;
-
+            
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -67,14 +74,70 @@ namespace UykuApnesiTespitSistemiDoktor
             
 
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private Hasta HastaEkle(string id,string isim,string soyisim,int dogumTarih,bool eMi)
         {
+            string cinsiyet;
+            if (eMi)
+                cinsiyet = "E";
+            else
+                cinsiyet = "K";
            
+            
+            return new(id, isim, soyisim, "Apne", dogumTarih, cinsiyet, new List<Rapor>());
+
+
+        }
+
+        private void HastaSilButton_Click(object sender, EventArgs e)
+        {
+            hastaList.RemoveAt(removeAt);
+            SetResponse set = client.Set(@"Users/" + id + "/HastaList", hastaList);
+
+
+
+            dataGridView1.DataSource = null;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+            Task.Delay(100);
+            dataGridView1.DataSource = hastaList;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+           
+
+        }
+
+  
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            removeAt = e.RowIndex;
+            HastaAdıTextBox.Text = hastaList[removeAt].Name;
+            HastaSoyAdıTextBox.Text = hastaList[removeAt].Soyad;
+            
         }
 
         private void HastaEkleButton_Click(object sender, EventArgs e)
         {
+            string hastaadi = HastaAdıTextBox.Text;
+            string hastasoyadi = HastaSoyAdıTextBox.Text;
+            int dogumtarihi =2023-HastaYasi.Value.Year;
+            bool cinsiyet = checkBox1.Checked;
+            Guid random = new Guid();
+            if (hastaList == null)
+            {
+                hastaList = new List<Hasta>();
+            }
+            
+            hastaList.Add(HastaEkle(random.ToString(), hastaadi, hastasoyadi, dogumtarihi, cinsiyet));
+            SetResponse set = client.Set(@"Users/" + id+"/HastaList",hastaList);
+            dataGridView1.DataSource = null;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+            Task.Delay(100);
+            dataGridView1.DataSource = hastaList;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+
 
         }
     }

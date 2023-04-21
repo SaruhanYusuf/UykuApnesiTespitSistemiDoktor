@@ -8,7 +8,7 @@ namespace UykuApnesiTespitSistemiDoktor
 {
     internal class TheUsers
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
 
         public string Name { get; set; }
         public string Alan { get; set; }
@@ -19,7 +19,7 @@ namespace UykuApnesiTespitSistemiDoktor
         private static string error = "Bir Hata Oluştu";
 
       
-        public TheUsers(int ıD, string name, string alan, List<Hasta> hastaList, string mail, string password)
+        public TheUsers(string ıD, string name, string alan, List<Hasta> hastaList, string mail, string password)
         {
             ID = ıD; // Buraya bir düzenleme yapılacak! 
             Name = name;

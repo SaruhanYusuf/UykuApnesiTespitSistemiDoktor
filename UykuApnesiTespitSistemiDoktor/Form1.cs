@@ -5,8 +5,10 @@ namespace UykuApnesiTespitSistemiDoktor
 {
     public partial class Register : Form
     {
-        public Register()=> InitializeComponent();
-        
+        public Register()
+        {
+            InitializeComponent();
+        }
         
         IFirebaseConfig ifc = new FirebaseConfig() //RealTime Database adresine baðlantý için bir nesne oluþturuldu.
         {
@@ -40,7 +42,7 @@ namespace UykuApnesiTespitSistemiDoktor
             List<Hasta> hastaList = new();
             List<Rapor> raporList = new();
             raporList.Add(new Rapor(1,"18.04.2023","deneme","deneme"));
-            hastaList.Add(new Hasta(1, "Hasan", "Münir", "Apne", 22, 'E', raporList));
+            hastaList.Add(new Hasta(new Guid().ToString(), "Hasan", "Münir", "Apne", 22, "E", raporList));
 
             string email = MailBox.Text;
 
@@ -57,9 +59,9 @@ namespace UykuApnesiTespitSistemiDoktor
 
                 string mail = MailBox.Text;
                 string password = PasswordBox.Text;
-                userList.Add(new TheUsers(1, "Münir", "UykuApnesi", hastaList, mail, password));
+       
                 string referance = Guid.NewGuid().ToString();
-
+                userList.Add(new TheUsers(referance, "Münir", "UykuApnesi", hastaList, mail, password));
                 SetResponse set = client.Set(@"Users/" + referance, userList.First());
             }
             else
