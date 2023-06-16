@@ -41,8 +41,8 @@ namespace UykuApnesiTespitSistemiDoktor
             List<TheUsers> userList = new();
             List<Hasta> hastaList = new();
             List<Rapor> raporList = new();
-            raporList.Add(new Rapor(1,"18.04.2023","deneme","deneme"));
-            hastaList.Add(new Hasta(new Guid().ToString(), "Hasan", "Münir", "Apne", 22, "E", raporList));
+            raporList.Add(new Rapor(1,null,null,null, null, null, null));
+            hastaList.Add(new Hasta(new Guid().ToString(), "Hasan", "Münir", "Apne", 22, "Ýyi" ,"E", raporList));
 
             string email = MailBox.Text;
 
@@ -69,23 +69,17 @@ namespace UykuApnesiTespitSistemiDoktor
 
         }
 
-
-        private void PasswordBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void UyeGirisButton_Click(object sender, EventArgs e)
         {
             Login log = new Login();
             this.Visible = false;
             log.ShowDialog();    
             
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -102,11 +96,16 @@ namespace UykuApnesiTespitSistemiDoktor
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void PasswordBox_TextChanged(object sender, EventArgs e)
         {
-            Application.Exit();
-            
+
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }

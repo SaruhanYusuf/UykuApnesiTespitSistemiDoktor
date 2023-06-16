@@ -26,3 +26,4 @@ C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDokt
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\ref\UykuApnesiTespitSistemiDoktor.dll
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.pdb
 C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.genruntimeconfig.cache
+C:\Users\saruh\Desktop\UykuApnesiTespitSistemiDoktor\UykuApnesiTespitSistemiDoktor\obj\Debug\net6.0-windows\UykuApnesiTespitSistemiDoktor.RaporListesi.resources

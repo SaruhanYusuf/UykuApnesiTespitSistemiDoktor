@@ -21,7 +21,7 @@ namespace UykuApnesiTespitSistemiDoktor
       
         public TheUsers(string ıD, string name, string alan, List<Hasta> hastaList, string mail, string password)
         {
-            ID = ıD; // Buraya bir düzenleme yapılacak! 
+            ID = ıD; 
             Name = name;
             Alan = alan;
             HastaList = hastaList;

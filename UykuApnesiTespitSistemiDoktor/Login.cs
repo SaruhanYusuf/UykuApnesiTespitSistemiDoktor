@@ -18,12 +18,11 @@ namespace UykuApnesiTespitSistemiDoktor
     public partial class Login : Form
     {
         static List<TheUsers> userList;
-        static string referance;
+        static string referance;  //Guild ID tutmak için gerekli bir değişken. Bir sonraki forma parametre yollamak için gerekli.
         public Login()
         {
             userList = new List<TheUsers>();
             InitializeComponent();
-
         }
         IFirebaseConfig ifc = new FirebaseConfig() //RealTime Database adresine bağlantı için bir nesne oluşturuldu.
         {
@@ -32,7 +31,6 @@ namespace UykuApnesiTespitSistemiDoktor
             BasePath = "https://uykuapnesitespitsistemi-default-rtdb.firebaseio.com/"
         };
         IFirebaseClient client;
-
         private void Login_Load(object sender, EventArgs e)
         {
             try
@@ -44,12 +42,9 @@ namespace UykuApnesiTespitSistemiDoktor
                 MessageBox.Show($"Bağlantınızı Kontrol Ediniz. \n Hata Kodu => {ex}");
             }
             this.CenterToScreen();
-
         }
         private void GirisYap_Click(object sender, EventArgs e)
         {
-            
-
             //Kutucukları Kontrol Ediyoruz.
             if (string.IsNullOrWhiteSpace(MailBox.Text) && string.IsNullOrWhiteSpace(PasswordBox.Text))
             {
@@ -62,29 +57,24 @@ namespace UykuApnesiTespitSistemiDoktor
                 .Regex(@"^[a-zA-Z][\w\.-]{2,28}[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
             //Database tepkiyi TheUsers sınıfına göre kontrol edecek.
             FirebaseResponse res = client.Get(@"Users/");
-            var deneme = res.Body;
-         
-           
-         
-            var data = JsonConvert.DeserializeObject<Dictionary<string, TheUsers>>(deneme);
-          
-
-            foreach (var item in data)
+            var hastaList = res.Body;
+            var firebaseData = JsonConvert.DeserializeObject<Dictionary<string, TheUsers>>(hastaList);
+            foreach (var item in firebaseData)
             {
                 TheUsers user = item.Value;
                 userList.Add(user);
             }
-
             TheUsers CurUser = new TheUsers()
             {
                 Mail = MailBox.Text,
                 Password = PasswordBox.Text,
             };
-           
-            TheUsers finaluser = userList.FirstOrDefault(x => x.Mail.Equals(CurUser.Mail) && x.Password.Equals(CurUser.Password));
-            
+            // CurUser frontend kısmında giriş yapmaya çalıştığımız kullanıcı firebaseData içinde mevcut ise finaluser'a atıyoruz.
+            TheUsers finaluser = userList.FirstOrDefault(x => x.Mail.Equals(CurUser.Mail) && x.Password.Equals(CurUser.Password)); 
             if (finaluser!=null && expr.IsMatch(email))
             {
+                //Bir sonraki form UykuApnesiTespitSistemi'ne finaluser'ın ID'si ve HastaList'ini parametre olarak yolluyoruz.
+                //Bu parametreleri daha sonra Hasta listesini listelemek için kullanacağız.
                 UykuApnesiTespitSistemi uykuApnesiTespitSistemi = new UykuApnesiTespitSistemi(finaluser.HastaList,finaluser.ID);
                 uykuApnesiTespitSistemi.Show();
                 this.Visible = false;
@@ -114,7 +104,6 @@ namespace UykuApnesiTespitSistemiDoktor
             PasswordBox.BackColor = SystemColors.Control;
             
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();

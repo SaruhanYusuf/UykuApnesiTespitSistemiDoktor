@@ -8,10 +8,10 @@
         public string Alan { get; set; }
         public int Yas { get; set; }
         public string Cinsiyet { get; set; }
-
+        public string HastaDurumu { get; set; }
         public List<Rapor> RaporList { get; set; }
 
-        public Hasta(string ıD, string name, string soyad, string alan, int yas, string cinsiyet, List<Rapor> raporList)
+        public Hasta(string ıD, string name, string soyad, string alan, int yas, string cinsiyet, string hastaDurumu, List<Rapor> raporList)
         {
             ID = ıD;
             Name = name;
@@ -19,6 +19,7 @@
             Alan = alan;
             Yas = yas;
             Cinsiyet = cinsiyet;
+            HastaDurumu = hastaDurumu;
             RaporList = raporList;
         }
     }

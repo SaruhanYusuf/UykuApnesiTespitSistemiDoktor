@@ -4,15 +4,21 @@
     {
         public int ID { get; set; }
         public string VeriTarihi { get; set; }
-        public string Tani { get; set; }
         public string Icerik { get; set; }
+        public string Sıcaklık { get; set; }
+        public string OksijenSeviyesi { get; set; }
+        public string Pozisyon { get; set; }
 
-        public Rapor(int ıD, string veriTarihi, string tani, string ıcerik)
+
+        public Rapor(int ıD, string veriTarihi, string ıcerik, string sicaklik, string oksijen, string deneme ,string pozisyon)
         {
             ID = ıD;
             VeriTarihi = veriTarihi;
-            Tani = tani;
             Icerik = ıcerik;
+            Sıcaklık = sicaklik;
+            OksijenSeviyesi = oksijen;
+            Pozisyon = pozisyon;
+         
         }
     }
 }
